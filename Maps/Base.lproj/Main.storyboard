@@ -42,9 +42,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U6c-sd-wBf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Карты" id="K2h-5m-kcC"/>
+                    <navigationItem key="navigationItem" title="Карты" id="K2h-5m-kcC">
+                        <barButtonItem key="leftBarButtonItem" title="Восстановить" id="j5j-k6-Uli">
+                            <connections>
+                                <action selector="restorePath:" destination="AWK-cl-90d" id="vdB-t2-GZm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Начать слежение" id="LMh-en-dzV">
+                            <connections>
+                                <action selector="startNewRoute:" destination="AWK-cl-90d" id="vGb-rQ-ZzR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="jpS-5E-0sk" id="Vre-HF-RX7"/>
+                        <outlet property="newRouteButton" destination="LMh-en-dzV" id="eSm-Ur-qQ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uep-3w-3h4" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,5 +8,6 @@ target 'Maps' do
   # Pods for Maps
 
   pod 'GoogleMaps'
+  pod 'RealmSwift'
 
 end
