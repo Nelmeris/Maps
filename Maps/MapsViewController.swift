@@ -20,7 +20,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
     
-    var isRouting: Bool?
+    var isRouting: Bool = false
     
     var beginBackgroundTask: UIBackgroundTaskIdentifier?
     
@@ -37,13 +37,14 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         locationManager?.pausesLocationUpdatesAutomatically = false
         locationManager?.startMonitoringSignificantLocationChanges()
         locationManager?.delegate = self
-        
-        locationManager?.startUpdatingLocation()
     }
     
-    fileprivate func configurateRoute() {
+    fileprivate func configurateRoute(routeColor: UIColor = .red, routeWidth: CGFloat = 4.0) {
+        isRouting = false
         route?.map = nil
         route = GMSPolyline()
+        route?.strokeColor = routeColor
+        route?.strokeWidth = routeWidth
         routePath = GMSMutablePath()
         route?.map = mapView
     }
@@ -76,7 +77,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         
         let coordinate = CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
         
-        if isRouting ?? false {
+        if isRouting {
             setRoute(coordinate)
         }
         
@@ -85,8 +86,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBOutlet weak var newRouteButton: UIBarButtonItem!
     @IBAction func startNewRoute(_ sender: Any) {
-        if newRouteButton.title == "Начать слежение" {
-            newRouteButton.title = "Закончить слежение"
+        if !isRouting {
+            newRouteButton.title = "Stop"
             newRouteButton.tintColor = .red
             
             beginBackgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
@@ -95,8 +96,9 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
             }
             
-            isRouting = true
             configurateRoute()
+            isRouting = true
+            locationManager?.startUpdatingLocation()
         } else {
             isRouting = false
             var coordinates = [Coordinates]()
@@ -113,13 +115,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             } catch {
                 print(error)
             }
-            newRouteButton.title = "Начать слежение"
+            newRouteButton.title = "Start"
             newRouteButton.tintColor = .blue
+            locationManager?.stopUpdatingLocation()
         }
     }
     
     @IBAction func restorePath(_ sender: Any) {
-        configurateRoute()
+        if isRouting {
+            let alert = UIAlertController(title: "Внимание", message: "Закончить запись трека?", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+                self.isRouting = false
+                self.newRouteButton.title = "Start"
+                self.newRouteButton.tintColor = .blue
+                self.locationManager?.stopUpdatingLocation()
+                self.startRestoreRoute()
+            })
+            alert.addAction(UIAlertAction(title: "Отмена", style: .cancel) { action in
+                return
+            })
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            startRestoreRoute()
+        }
+    }
+    
+    func startRestoreRoute() {
+        configurateRoute(routeColor: .green)
         do {
             let realm = try Realm()
             let coordinates = realm.objects(Coordinates.self)

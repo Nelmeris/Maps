@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-231" y="154"/>
         </scene>
-        <!--Карты-->
+        <!--Map View Controller-->
         <scene sceneID="lwv-zp-3sb">
             <objects>
                 <viewController id="AWK-cl-90d" customClass="MapViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -42,13 +42,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="U6c-sd-wBf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Карты" id="K2h-5m-kcC">
-                        <barButtonItem key="leftBarButtonItem" title="Восстановить" id="j5j-k6-Uli">
+                    <navigationItem key="navigationItem" id="K2h-5m-kcC">
+                        <barButtonItem key="leftBarButtonItem" title="Reset" id="j5j-k6-Uli">
                             <connections>
                                 <action selector="restorePath:" destination="AWK-cl-90d" id="vdB-t2-GZm"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Начать слежение" id="LMh-en-dzV">
+                        <barButtonItem key="rightBarButtonItem" title="Start" id="LMh-en-dzV">
                             <connections>
                                 <action selector="startNewRoute:" destination="AWK-cl-90d" id="vGb-rQ-ZzR"/>
                             </connections>
