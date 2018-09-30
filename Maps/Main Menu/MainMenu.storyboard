@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gLv-JZ-POb">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="2U0-P9-711">
+            <objects>
+                <viewController id="gLv-JZ-POb" customClass="MainViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8cQ-Sw-vlM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="ddE-sS-yTQ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view clipsSubviews="YES" alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-sf-mBj">
+                                <rect key="frame" x="40" y="209" width="295" height="249.5"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="wWz-oq-qoM"/>
+                                </constraints>
+                            </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Добро пожаловать, Nickname!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-rh-v7K">
+                                <rect key="frame" x="55" y="229" width="265" height="105.5"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnb-s4-nWX">
+                                <rect key="frame" x="151.5" y="396.5" width="72" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Выйти">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="logout:" destination="gLv-JZ-POb" eventType="touchUpInside" id="HAY-28-dcx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wr9-Ca-yXK">
+                                <rect key="frame" x="104" y="344.5" width="167" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Открыть карту">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="openMap:" destination="gLv-JZ-POb" eventType="touchUpInside" id="MDP-WW-eDN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hNP-rh-v7K" firstAttribute="trailing" secondItem="Fzd-sf-mBj" secondAttribute="trailing" constant="-15" id="78Y-C7-Wwh"/>
+                            <constraint firstItem="hNP-rh-v7K" firstAttribute="leading" secondItem="Fzd-sf-mBj" secondAttribute="leading" constant="15" id="7gQ-9E-ZsQ"/>
+                            <constraint firstItem="wr9-Ca-yXK" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="8Hp-hI-9Ny"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="8Ve-RB-wsd"/>
+                            <constraint firstItem="jnb-s4-nWX" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="AGv-YS-Tcf"/>
+                            <constraint firstItem="ddE-sS-yTQ" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" id="NE8-FF-MJW"/>
+                            <constraint firstItem="ddE-sS-yTQ" firstAttribute="top" secondItem="8cQ-Sw-vlM" secondAttribute="top" id="PSb-Ut-hMU"/>
+                            <constraint firstItem="wr9-Ca-yXK" firstAttribute="top" secondItem="hNP-rh-v7K" secondAttribute="bottom" constant="10" id="PnP-sd-wIE"/>
+                            <constraint firstItem="0Gh-0o-6v2" firstAttribute="trailing" secondItem="Fzd-sf-mBj" secondAttribute="trailing" constant="40" id="Rye-1y-05h"/>
+                            <constraint firstItem="jnb-s4-nWX" firstAttribute="bottom" secondItem="Fzd-sf-mBj" secondAttribute="bottom" constant="-20" id="XUZ-e2-nKB"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerY" secondItem="8cQ-Sw-vlM" secondAttribute="centerY" id="ZJ6-yX-eVg"/>
+                            <constraint firstItem="hNP-rh-v7K" firstAttribute="top" secondItem="Fzd-sf-mBj" secondAttribute="top" constant="20" id="a0H-M9-dg7"/>
+                            <constraint firstItem="jnb-s4-nWX" firstAttribute="top" secondItem="wr9-Ca-yXK" secondAttribute="bottom" constant="10" id="g7A-Fg-ofJ"/>
+                            <constraint firstItem="ddE-sS-yTQ" firstAttribute="trailing" secondItem="0Gh-0o-6v2" secondAttribute="trailing" id="k93-dj-QxN"/>
+                            <constraint firstItem="hNP-rh-v7K" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="mbG-3d-QqE"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" constant="40" id="pFZ-Zr-edG"/>
+                            <constraint firstAttribute="bottom" secondItem="ddE-sS-yTQ" secondAttribute="bottom" id="xm3-yD-djv"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="0Gh-0o-6v2"/>
+                    </view>
+                    <connections>
+                        <outlet property="helloLabel" destination="hNP-rh-v7K" id="Rd9-Kg-wtr"/>
+                        <outlet property="mainBox" destination="Fzd-sf-mBj" id="2Wt-Fr-arz"/>
+                        <segue destination="El9-eV-dgV" kind="custom" identifier="toMap" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="Oaw-of-yT9"/>
+                        <segue destination="nj5-DX-Ycc" kind="custom" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="Bka-gS-usG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63z-Ni-Okm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015.2" y="-151.57421289355324"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="xJt-US-NSw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Map" id="El9-eV-dgV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LFj-GY-Q7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1552" y="-280"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="7OV-6g-mBj">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="nj5-DX-Ycc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MHo-Yr-hcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1553" y="-41"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Background" width="2560" height="1024"/>
+    </resources>
+</document>

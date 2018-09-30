@@ -33,13 +33,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jpS-5E-0sk" customClass="GMSMapView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Map" translatesAutoresizingMaskIntoConstraints="NO" id="bhd-cU-NUz">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="jpS-5E-0sk" customClass="GMSMapView">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.48568372294772144" green="1" blue="0.50909019436689307" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jpS-5E-0sk" firstAttribute="top" secondItem="U6c-sd-wBf" secondAttribute="top" id="8MQ-rD-qu9"/>
+                            <constraint firstItem="bhd-cU-NUz" firstAttribute="trailing" secondItem="U6c-sd-wBf" secondAttribute="trailing" id="TEP-Ce-EAa"/>
+                            <constraint firstAttribute="bottom" secondItem="bhd-cU-NUz" secondAttribute="bottom" id="c2c-5k-cfQ"/>
+                            <constraint firstItem="jpS-5E-0sk" firstAttribute="trailing" secondItem="U6c-sd-wBf" secondAttribute="trailing" id="eql-Te-dx7"/>
+                            <constraint firstItem="jpS-5E-0sk" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" id="fVQ-Ya-ylv"/>
+                            <constraint firstItem="bhd-cU-NUz" firstAttribute="top" secondItem="lk1-A7-cV4" secondAttribute="top" id="jBD-xi-Yod"/>
+                            <constraint firstAttribute="bottom" secondItem="jpS-5E-0sk" secondAttribute="bottom" id="o2r-7F-i6f"/>
+                            <constraint firstItem="bhd-cU-NUz" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" id="wmc-Nx-kTm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="U6c-sd-wBf"/>
                     </view>
                     <navigationItem key="navigationItem" id="K2h-5m-kcC">
@@ -64,4 +75,7 @@
             <point key="canvasLocation" x="720.79999999999995" y="152.47376311844079"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Map" width="1440" height="2182"/>
+    </resources>
 </document>

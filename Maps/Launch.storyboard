@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Dkx-Ox-FQ4">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Dkx-Ox-FQ4">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
@@ -32,98 +32,20 @@
                     </view>
                     <connections>
                         <segue destination="UE8-y3-8uh" kind="show" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="4uh-bd-qLF"/>
-                        <segue destination="OQs-bp-eMl" kind="show" identifier="toMain" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="JeW-JE-SMz"/>
+                        <segue destination="B4F-cC-Ruw" kind="custom" identifier="toMain" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="gUm-V1-DS9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W88-cO-1rt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="97" y="108"/>
         </scene>
-        <!--Main View Controller-->
-        <scene sceneID="dDi-Kz-6Ob">
+        <!--MainMenu-->
+        <scene sceneID="A9c-Rg-vlR">
             <objects>
-                <viewController id="OQs-bp-eMl" customClass="MainViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="auP-tf-iAZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="SSb-XB-wW4">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <view clipsSubviews="YES" alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWc-g8-bDl">
-                                <rect key="frame" x="40" y="209" width="295" height="249.5"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="O2m-el-22x"/>
-                                </constraints>
-                            </view>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Добро пожаловать, Nickname!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2l-jV-Fav">
-                                <rect key="frame" x="55" y="229" width="265" height="105.5"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-6d-8o7">
-                                <rect key="frame" x="151.5" y="396.5" width="72" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Выйти">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="logout:" destination="OQs-bp-eMl" eventType="touchUpInside" id="FpF-u2-Kie"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ofh-Gu-jdO">
-                                <rect key="frame" x="104" y="344.5" width="167" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="Открыть карту">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="openMap:" destination="OQs-bp-eMl" eventType="touchUpInside" id="GYw-n2-r8x"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Py0-6d-8o7" firstAttribute="top" secondItem="Ofh-Gu-jdO" secondAttribute="bottom" constant="10" id="3zj-G3-mZf"/>
-                            <constraint firstItem="P2l-jV-Fav" firstAttribute="trailing" secondItem="yWc-g8-bDl" secondAttribute="trailing" constant="-15" id="588-oZ-Zc7"/>
-                            <constraint firstItem="SSb-XB-wW4" firstAttribute="leading" secondItem="YS6-vz-3Ur" secondAttribute="leading" id="5Te-7i-U2K"/>
-                            <constraint firstItem="Ofh-Gu-jdO" firstAttribute="centerX" secondItem="yWc-g8-bDl" secondAttribute="centerX" id="9vr-eX-eJw"/>
-                            <constraint firstItem="SSb-XB-wW4" firstAttribute="top" secondItem="auP-tf-iAZ" secondAttribute="top" id="AU9-0H-yvG"/>
-                            <constraint firstItem="yWc-g8-bDl" firstAttribute="centerY" secondItem="auP-tf-iAZ" secondAttribute="centerY" id="ODZ-R6-XnA"/>
-                            <constraint firstItem="SSb-XB-wW4" firstAttribute="trailing" secondItem="YS6-vz-3Ur" secondAttribute="trailing" id="OaS-dB-Mca"/>
-                            <constraint firstItem="P2l-jV-Fav" firstAttribute="top" secondItem="yWc-g8-bDl" secondAttribute="top" constant="20" id="QBC-G2-68o"/>
-                            <constraint firstItem="P2l-jV-Fav" firstAttribute="centerX" secondItem="yWc-g8-bDl" secondAttribute="centerX" id="QMP-lL-h4X"/>
-                            <constraint firstItem="yWc-g8-bDl" firstAttribute="centerX" secondItem="auP-tf-iAZ" secondAttribute="centerX" id="QR9-Ef-ndH"/>
-                            <constraint firstItem="P2l-jV-Fav" firstAttribute="leading" secondItem="yWc-g8-bDl" secondAttribute="leading" constant="15" id="RH4-DS-o1I"/>
-                            <constraint firstItem="Py0-6d-8o7" firstAttribute="centerX" secondItem="yWc-g8-bDl" secondAttribute="centerX" id="Rgj-Lw-2YT"/>
-                            <constraint firstAttribute="bottom" secondItem="SSb-XB-wW4" secondAttribute="bottom" id="Sv0-RH-uQh"/>
-                            <constraint firstItem="Py0-6d-8o7" firstAttribute="bottom" secondItem="yWc-g8-bDl" secondAttribute="bottom" constant="-20" id="ZR1-zl-YlV"/>
-                            <constraint firstItem="YS6-vz-3Ur" firstAttribute="trailing" secondItem="yWc-g8-bDl" secondAttribute="trailing" constant="40" id="c3M-gp-Ukx"/>
-                            <constraint firstItem="yWc-g8-bDl" firstAttribute="leading" secondItem="YS6-vz-3Ur" secondAttribute="leading" constant="40" id="u5o-km-Vht"/>
-                            <constraint firstItem="Ofh-Gu-jdO" firstAttribute="top" secondItem="P2l-jV-Fav" secondAttribute="bottom" constant="10" id="vZm-kJ-rAV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="YS6-vz-3Ur"/>
-                    </view>
-                    <connections>
-                        <outlet property="helloLabel" destination="P2l-jV-Fav" id="i2T-mB-5do"/>
-                        <outlet property="mainBox" destination="yWc-g8-bDl" id="7CO-MY-gLI"/>
-                        <segue destination="UE8-y3-8uh" kind="custom" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="1Mw-KB-Yit"/>
-                        <segue destination="lao-fK-3fh" kind="custom" identifier="toMap" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="agd-jQ-Hhg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bOz-FA-zk0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="MainMenu" id="B4F-cC-Ruw" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hh6-mZ-uXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.2" y="-151.57421289355324"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="Xfe-We-O0x">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="lao-fK-3fh" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="L50-Jg-LxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1722" y="-152"/>
+            <point key="canvasLocation" x="665" y="4"/>
         </scene>
         <!--Login-->
         <scene sceneID="rOp-wN-8VJ">
@@ -131,13 +53,10 @@
                 <viewControllerPlaceholder storyboardName="Login" id="UE8-y3-8uh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WL8-UH-Uq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="290"/>
+            <point key="canvasLocation" x="641" y="202"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="2560" height="1024"/>
+        <image name="Background" width="2560" height="1024"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="4uh-bd-qLF"/>
-    </inferredMetricsTieBreakers>
 </document>
