@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5727CE1C2161025D00C8DC4A /* UserRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE1B2161025D00C8DC4A /* UserRealmModel.swift */; };
+		5727CE1E21610B7E00C8DC4A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE1D21610B7E00C8DC4A /* Login.storyboard */; };
+		5727CE20216116FF00C8DC4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE1F216116FF00C8DC4A /* LoginViewController.swift */; };
+		5727CE242161436100C8DC4A /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */; };
+		5727CE262161437100C8DC4A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE252161437100C8DC4A /* RegistrationViewController.swift */; };
+		5727CE292161531800C8DC4A /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE282161531800C8DC4A /* Launch.storyboard */; };
+		5727CE2E2161537D00C8DC4A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */; };
+		5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2F216154E000C8DC4A /* RootSegue.swift */; };
+		5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE3121615B1300C8DC4A /* MainViewController.swift */; };
 		57833005215A4F5600621368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833004215A4F5600621368 /* AppDelegate.swift */; };
-		5783300A215A4F5600621368 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57833008215A4F5600621368 /* Main.storyboard */; };
+		5783300A215A4F5600621368 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57833008215A4F5600621368 /* Map.storyboard */; };
 		5783300C215A4F5800621368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5783300B215A4F5800621368 /* Assets.xcassets */; };
 		5783300F215A4F5800621368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5783300D215A4F5800621368 /* LaunchScreen.storyboard */; };
-		57833017215A542A00621368 /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833016215A542900621368 /* MapsViewController.swift */; };
+		57833017215A542A00621368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833016215A542900621368 /* MapViewController.swift */; };
 		57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */; };
 		5BE5DE90AC65D5BDFFC9A8F5 /* Pods_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19207293A46EA4A3F75AF63E /* Pods_Maps.framework */; };
 /* End PBXBuildFile section */
@@ -43,13 +52,22 @@
 /* Begin PBXFileReference section */
 		07ECC31F1FB7A287778DC723 /* Pods-Maps.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Maps/Pods-Maps.debug.xcconfig"; sourceTree = "<group>"; };
 		19207293A46EA4A3F75AF63E /* Pods_Maps.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Maps.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5727CE1B2161025D00C8DC4A /* UserRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRealmModel.swift; sourceTree = "<group>"; };
+		5727CE1D21610B7E00C8DC4A /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		5727CE1F216116FF00C8DC4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordViewController.swift; sourceTree = "<group>"; };
+		5727CE252161437100C8DC4A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		5727CE282161531800C8DC4A /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
+		5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		5727CE2F216154E000C8DC4A /* RootSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSegue.swift; sourceTree = "<group>"; };
+		5727CE3121615B1300C8DC4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		57833001215A4F5600621368 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57833004215A4F5600621368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		57833009215A4F5600621368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		57833009215A4F5600621368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
 		5783300B215A4F5800621368 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5783300E215A4F5800621368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		57833010215A4F5800621368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57833016215A542900621368 /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		57833016215A542900621368 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		57D3E3A3215AA60D00FD7007 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesRealmModel.swift; sourceTree = "<group>"; };
 		6EF72297D14EB8D19EFC34D8 /* Pods-Maps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maps/Pods-Maps.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +85,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5727CE212161176200C8DC4A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5727CE1D21610B7E00C8DC4A /* Login.storyboard */,
+				5727CE1F216116FF00C8DC4A /* LoginViewController.swift */,
+				5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */,
+				5727CE252161437100C8DC4A /* RegistrationViewController.swift */,
+				5727CE1B2161025D00C8DC4A /* UserRealmModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5727CE222161177000C8DC4A /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				57833008215A4F5600621368 /* Map.storyboard */,
+				57833016215A542900621368 /* MapViewController.swift */,
+				57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
 		57832FF8215A4F5600621368 = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +128,16 @@
 		57833003215A4F5600621368 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				5727CE222161177000C8DC4A /* Maps */,
+				5727CE212161176200C8DC4A /* Login */,
 				57833004215A4F5600621368 /* AppDelegate.swift */,
-				57833008215A4F5600621368 /* Main.storyboard */,
 				5783300B215A4F5800621368 /* Assets.xcassets */,
 				5783300D215A4F5800621368 /* LaunchScreen.storyboard */,
 				57833010215A4F5800621368 /* Info.plist */,
-				57833016215A542900621368 /* MapsViewController.swift */,
-				57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */,
+				5727CE282161531800C8DC4A /* Launch.storyboard */,
+				5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */,
+				5727CE3121615B1300C8DC4A /* MainViewController.swift */,
+				5727CE2F216154E000C8DC4A /* RootSegue.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -223,9 +266,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5727CE1E21610B7E00C8DC4A /* Login.storyboard in Resources */,
+				5727CE292161531800C8DC4A /* Launch.storyboard in Resources */,
 				5783300F215A4F5800621368 /* LaunchScreen.storyboard in Resources */,
 				5783300C215A4F5800621368 /* Assets.xcassets in Resources */,
-				5783300A215A4F5600621368 /* Main.storyboard in Resources */,
+				5783300A215A4F5600621368 /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,21 +340,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5727CE1C2161025D00C8DC4A /* UserRealmModel.swift in Sources */,
 				57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */,
 				57833005215A4F5600621368 /* AppDelegate.swift in Sources */,
-				57833017215A542A00621368 /* MapsViewController.swift in Sources */,
+				5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */,
+				57833017215A542A00621368 /* MapViewController.swift in Sources */,
+				5727CE262161437100C8DC4A /* RegistrationViewController.swift in Sources */,
+				5727CE242161436100C8DC4A /* RestorePasswordViewController.swift in Sources */,
+				5727CE20216116FF00C8DC4A /* LoginViewController.swift in Sources */,
+				5727CE2E2161537D00C8DC4A /* LaunchViewController.swift in Sources */,
+				5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		57833008215A4F5600621368 /* Main.storyboard */ = {
+		57833008215A4F5600621368 /* Map.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				57833009215A4F5600621368 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Map.storyboard;
 			sourceTree = "<group>";
 		};
 		5783300D215A4F5800621368 /* LaunchScreen.storyboard */ = {
