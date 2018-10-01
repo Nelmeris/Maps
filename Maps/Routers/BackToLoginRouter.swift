@@ -6,10 +6,13 @@
 //  Copyright © 2018 Artem Kufaev. All rights reserved.
 //
 
+import UIKit
+
 final class BackToLoginRouter: BaseRouter {
     
     func toLogin() {
-        perform(segue: "toLogin")
+        let controller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(LoginViewController.self)
+        show(controller)
     }
     
 }

@@ -22,6 +22,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
     @IBAction func login(_ sender: Any) {
         guard let login = loginField.text, login != "",
             let password = passwordField.text, password != ""
@@ -37,7 +43,7 @@ class LoginViewController: UIViewController {
                 let user = User(login, password)
                 Authorization.shared.login(user: user)
                 // Перейти на главную страницу
-                router.toLounch()
+                router.toMain()
             } else {
                 // При ошибке в пароле
                 let alert = UIAlertController(title: "Ошибка", message: "Неверный пароль!", preferredStyle: UIAlertController.Style.alert)
@@ -60,7 +66,5 @@ class LoginViewController: UIViewController {
         // Перейти на страницу регистрации
         router.toRegistration()
     }
-    
-    @IBAction func back(segue: UIStoryboardSegue) { }
     
 }

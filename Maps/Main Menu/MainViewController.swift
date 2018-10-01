@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
         guard let userName = Authorization.shared.userName else { fatalError() }
         helloLabel.text = "Добро пожаловать, \(userName)"
     }

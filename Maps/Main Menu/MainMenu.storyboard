@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P79-gz-zeB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,27 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
-        <scene sceneID="oWP-Si-2mS">
-            <objects>
-                <navigationController id="P79-gz-zeB" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Z5Q-GQ-7zo">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="gLv-JZ-POb" kind="relationship" relationship="rootViewController" id="o4O-cF-nfe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yXE-1T-cGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="153" y="-152"/>
-        </scene>
         <!--Controller-->
         <scene sceneID="2U0-P9-711">
             <objects>
-                <viewController id="gLv-JZ-POb" customClass="MainViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="gLv-JZ-POb" customClass="MainViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8cQ-Sw-vlM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +54,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtm-8K-GlV">
-                                <rect key="frame" x="125.5" y="84" width="124" height="54"/>
+                                <rect key="frame" x="125.5" y="40" width="124" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -106,8 +89,6 @@
                         <outlet property="helloLabel" destination="hNP-rh-v7K" id="Rd9-Kg-wtr"/>
                         <outlet property="mainBox" destination="Fzd-sf-mBj" id="2Wt-Fr-arz"/>
                         <outlet property="router" destination="Zqs-tZ-PhD" id="XQB-Cw-zNi"/>
-                        <segue destination="nj5-DX-Ycc" kind="custom" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="Bka-gS-usG"/>
-                        <segue destination="El9-eV-dgV" kind="show" identifier="toMap" id="IQZ-6E-pRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63z-Ni-Okm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -118,22 +99,6 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="1015.2" y="-151.57421289355324"/>
-        </scene>
-        <!--Map-->
-        <scene sceneID="xJt-US-NSw">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Map" id="El9-eV-dgV" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LFj-GY-Q7e" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1552" y="-280"/>
-        </scene>
-        <!--Login-->
-        <scene sceneID="7OV-6g-mBj">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Login" id="nj5-DX-Ycc" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MHo-Yr-hcL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1553" y="-41"/>
         </scene>
     </scenes>
     <resources>

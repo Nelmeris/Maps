@@ -6,18 +6,23 @@
 //  Copyright © 2018 Artem Kufaev. All rights reserved.
 //
 
+import UIKit
+
 final class LoginRouter: BaseRouter {
     
-    func toLounch() {
-        perform(segue: "toLounch")
+    func toMain() {
+        let controller = UIStoryboard(name: "MainMenu", bundle: nil).instantiateViewController(MainViewController.self)
+        setAsRoot(UINavigationController(rootViewController: controller))
     }
     
     func toRestore() {
-        perform(segue: "toRestore")
+        let controller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(RestorePasswordViewController.self)
+        show(controller)
     }
     
     func toRegistration() {
-        perform(segue: "toRegistration")
+        let controller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(RegistrationViewController.self)
+        show(controller)
     }
     
 }

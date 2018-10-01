@@ -20,9 +20,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         GMSServices.provideAPIKey("AIzaSyApJcMOnEjjeQzYz2255SQAuEg-TrLlMNE")
         
+        let controller: UIViewController
+        if Authorization.shared.isAuth {
+            controller = UIStoryboard(name: "MainMenu", bundle: nil).instantiateViewController(MainViewController.self)
+        } else {
+            controller = UIStoryboard(name: "Login", bundle: nil).instantiateViewController(LoginViewController.self)
+        }
+        
+        window = UIWindow()
+        
+        window?.rootViewController = UINavigationController(rootViewController: controller)
+        
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
-
 }
-

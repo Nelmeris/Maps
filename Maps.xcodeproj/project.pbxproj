@@ -12,8 +12,6 @@
 		5727CE20216116FF00C8DC4A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE1F216116FF00C8DC4A /* LoginViewController.swift */; };
 		5727CE242161436100C8DC4A /* RestorePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */; };
 		5727CE262161437100C8DC4A /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE252161437100C8DC4A /* RegistrationViewController.swift */; };
-		5727CE292161531800C8DC4A /* Launch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE282161531800C8DC4A /* Launch.storyboard */; };
-		5727CE2E2161537D00C8DC4A /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */; };
 		5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2F216154E000C8DC4A /* RootSegue.swift */; };
 		5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE3121615B1300C8DC4A /* MainViewController.swift */; };
 		5727CE3521617FF200C8DC4A /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE3421617FF200C8DC4A /* MainMenu.storyboard */; };
@@ -23,12 +21,12 @@
 		5783300F215A4F5800621368 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5783300D215A4F5800621368 /* LaunchScreen.storyboard */; };
 		57833017215A542A00621368 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833016215A542900621368 /* MapViewController.swift */; };
 		57A222E9216186010041764E /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222E8216186010041764E /* BaseRouter.swift */; };
-		57A222EB216188120041764E /* LaunchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222EA216188120041764E /* LaunchRouter.swift */; };
 		57A222ED21618F280041764E /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222EC21618F280041764E /* Authorization.swift */; };
 		57A222F0216191120041764E /* RealmService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222EF216191120041764E /* RealmService.swift */; };
 		57A222F221619EC30041764E /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222F121619EC30041764E /* MainRouter.swift */; };
 		57A222F421619ECE0041764E /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222F321619ECE0041764E /* LoginRouter.swift */; };
 		57A222F72161A8B80041764E /* BackToLoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222F62161A8B80041764E /* BackToLoginRouter.swift */; };
+		57A222FC2161B2520041764E /* StoryboardIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */; };
 		57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */; };
 		5BE5DE90AC65D5BDFFC9A8F5 /* Pods_Maps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19207293A46EA4A3F75AF63E /* Pods_Maps.framework */; };
 /* End PBXBuildFile section */
@@ -65,8 +63,6 @@
 		5727CE1F216116FF00C8DC4A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestorePasswordViewController.swift; sourceTree = "<group>"; };
 		5727CE252161437100C8DC4A /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
-		5727CE282161531800C8DC4A /* Launch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Launch.storyboard; sourceTree = "<group>"; };
-		5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		5727CE2F216154E000C8DC4A /* RootSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSegue.swift; sourceTree = "<group>"; };
 		5727CE3121615B1300C8DC4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5727CE3421617FF200C8DC4A /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
@@ -78,12 +74,12 @@
 		57833010215A4F5800621368 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57833016215A542900621368 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		57A222E8216186010041764E /* BaseRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		57A222EA216188120041764E /* LaunchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchRouter.swift; sourceTree = "<group>"; };
 		57A222EC21618F280041764E /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		57A222EF216191120041764E /* RealmService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmService.swift; sourceTree = "<group>"; };
 		57A222F121619EC30041764E /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
 		57A222F321619ECE0041764E /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
 		57A222F62161A8B80041764E /* BackToLoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackToLoginRouter.swift; sourceTree = "<group>"; };
+		57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardIdentifiable.swift; sourceTree = "<group>"; };
 		57D3E3A3215AA60D00FD7007 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatesRealmModel.swift; sourceTree = "<group>"; };
 		6EF72297D14EB8D19EFC34D8 /* Pods-Maps.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Maps.release.xcconfig"; path = "Pods/Target Support Files/Pods-Maps/Pods-Maps.release.xcconfig"; sourceTree = "<group>"; };
@@ -156,7 +152,6 @@
 			children = (
 				57A222E7216185C70041764E /* Segues */,
 				57A222E6216185C10041764E /* Routers */,
-				57A222E2216185A20041764E /* Lounch */,
 				5727CE3321617FD800C8DC4A /* Main Menu */,
 				5727CE222161177000C8DC4A /* Maps */,
 				5727CE212161176200C8DC4A /* Login */,
@@ -164,24 +159,15 @@
 				5783300B215A4F5800621368 /* Assets.xcassets */,
 				5783300D215A4F5800621368 /* LaunchScreen.storyboard */,
 				57833010215A4F5800621368 /* Info.plist */,
+				57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */,
 			);
 			path = Maps;
-			sourceTree = "<group>";
-		};
-		57A222E2216185A20041764E /* Lounch */ = {
-			isa = PBXGroup;
-			children = (
-				5727CE282161531800C8DC4A /* Launch.storyboard */,
-				5727CE2D2161537D00C8DC4A /* LaunchViewController.swift */,
-			);
-			path = Lounch;
 			sourceTree = "<group>";
 		};
 		57A222E6216185C10041764E /* Routers */ = {
 			isa = PBXGroup;
 			children = (
 				57A222E8216186010041764E /* BaseRouter.swift */,
-				57A222EA216188120041764E /* LaunchRouter.swift */,
 				57A222F121619EC30041764E /* MainRouter.swift */,
 				57A222F321619ECE0041764E /* LoginRouter.swift */,
 				57A222F62161A8B80041764E /* BackToLoginRouter.swift */,
@@ -331,7 +317,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5727CE1E21610B7E00C8DC4A /* Login.storyboard in Resources */,
-				5727CE292161531800C8DC4A /* Launch.storyboard in Resources */,
 				5727CE3521617FF200C8DC4A /* MainMenu.storyboard in Resources */,
 				5783300F215A4F5800621368 /* LaunchScreen.storyboard in Resources */,
 				5783300C215A4F5800621368 /* Assets.xcassets in Resources */,
@@ -419,8 +404,7 @@
 				57A222E9216186010041764E /* BaseRouter.swift in Sources */,
 				57A222F0216191120041764E /* RealmService.swift in Sources */,
 				5727CE20216116FF00C8DC4A /* LoginViewController.swift in Sources */,
-				57A222EB216188120041764E /* LaunchRouter.swift in Sources */,
-				5727CE2E2161537D00C8DC4A /* LaunchViewController.swift in Sources */,
+				57A222FC2161B2520041764E /* StoryboardIdentifiable.swift in Sources */,
 				5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
