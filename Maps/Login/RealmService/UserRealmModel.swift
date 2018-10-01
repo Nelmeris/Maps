@@ -9,10 +9,11 @@
 import RealmSwift
 
 class User: Object {
+    
     @objc dynamic var login: String = ""
     @objc dynamic var password: String = ""
     
-    required convenience init(login: String, password: String) {
+    required convenience init(_ login: String, _ password: String) {
         self.init()
         
         self.login = login
@@ -22,4 +23,5 @@ class User: Object {
     override static func primaryKey() -> String? {
         return "login"
     }
+    
 }

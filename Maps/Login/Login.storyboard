@@ -16,6 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="BJG-Vj-DDC">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Utt-0L-toU" kind="relationship" relationship="rootViewController" id="c3h-Yc-cYk"/>
@@ -25,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-802" y="143"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Controller-->
         <scene sceneID="HJp-3T-Vkh">
             <objects>
                 <viewController id="Utt-0L-toU" customClass="LoginViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -132,16 +133,22 @@
                         <outlet property="loginBox" destination="7wU-YY-QOl" id="pq7-ca-6aS"/>
                         <outlet property="loginField" destination="9oC-eo-iYD" id="sbi-it-tzP"/>
                         <outlet property="passwordField" destination="ihV-XE-dU7" id="ArY-YJ-Tct"/>
+                        <outlet property="router" destination="yhg-FC-g9V" id="WxE-Yh-4RG"/>
                         <segue destination="xPD-oQ-4I3" kind="show" identifier="toRestore" id="bA2-Kq-2bb"/>
-                        <segue destination="chY-sr-Jyu" kind="show" identifier="toMain" id="xdH-Bs-vn8"/>
+                        <segue destination="chY-sr-Jyu" kind="show" identifier="toLounch" id="xdH-Bs-vn8"/>
                         <segue destination="Igl-RQ-063" kind="show" identifier="toRegistration" id="Q4s-LK-M44"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gv-TG-Xte" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="yhg-FC-g9V" customClass="BaseRouter" customModule="Maps" customModuleProvider="target">
+                    <connections>
+                        <outlet property="controller" destination="Utt-0L-toU" id="NKY-3h-wqc"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="64.799999999999997" y="143.47826086956522"/>
         </scene>
-        <!--Registration View Controller-->
+        <!--Controller-->
         <scene sceneID="nYv-2s-jxr">
             <objects>
                 <viewController id="Igl-RQ-063" customClass="RegistrationViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -233,10 +240,16 @@
                         <outlet property="loginField" destination="Rmo-uP-2aw" id="yjU-ub-h1l"/>
                         <outlet property="passwordField" destination="0eq-2A-NfF" id="hYo-4M-TcZ"/>
                         <outlet property="repeatPasswordField" destination="PP8-mA-OQI" id="NFY-xC-imq"/>
-                        <segue destination="HE0-YK-u5u" kind="unwind" identifier="back" unwindAction="backWithSegue:" id="qwr-z1-Jja"/>
+                        <outlet property="router" destination="xU3-UK-bkc" id="vXa-Zi-bcW"/>
+                        <segue destination="HE0-YK-u5u" kind="unwind" identifier="toLogin" unwindAction="backWithSegue:" id="qwr-z1-Jja"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fH1-aX-s6z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="xU3-UK-bkc" customClass="BaseRouter" customModule="Maps" customModuleProvider="target">
+                    <connections>
+                        <outlet property="controller" destination="Igl-RQ-063" id="EJJ-dZ-L5F"/>
+                    </connections>
+                </customObject>
                 <exit id="HE0-YK-u5u" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1010" y="506"/>
@@ -249,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="1486" y="143"/>
         </scene>
-        <!--Restore Password View Controller-->
+        <!--Controller-->
         <scene sceneID="0Qy-au-kg4">
             <objects>
                 <viewController id="xPD-oQ-4I3" customClass="RestorePasswordViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -321,10 +334,16 @@
                     <connections>
                         <outlet property="loginBox" destination="AOj-RY-fIC" id="DNl-hI-2WR"/>
                         <outlet property="loginField" destination="vLu-eK-GZQ" id="WHy-ix-Uf8"/>
-                        <segue destination="X0D-2M-sUN" kind="unwind" identifier="back" unwindAction="backWithSegue:" id="8OR-zK-k5V"/>
+                        <outlet property="router" destination="UCO-WE-u1P" id="3mz-Jk-UfA"/>
+                        <segue destination="X0D-2M-sUN" kind="unwind" identifier="toLogin" unwindAction="backWithSegue:" id="8OR-zK-k5V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9I7-lV-N4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="UCO-WE-u1P" customClass="BaseRouter" customModule="Maps" customModuleProvider="target">
+                    <connections>
+                        <outlet property="controller" destination="xPD-oQ-4I3" id="KR8-X0-xVY"/>
+                    </connections>
+                </customObject>
                 <exit id="X0D-2M-sUN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1009" y="-219"/>

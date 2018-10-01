@@ -84,11 +84,10 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         setCamera(coordinate)
     }
     
-    @IBOutlet weak var newRouteButton: UIBarButtonItem!
+    @IBOutlet weak var newRouteButton: UIButton!
     @IBAction func startNewRoute(_ sender: Any) {
         if !isRouting {
-            newRouteButton.title = "Stop"
-            newRouteButton.tintColor = .red
+            newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
             
             beginBackgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
                 guard let strongSelf = self else { return }
@@ -96,7 +95,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
             }
             
-            configurateRoute()
+            configurateRoute(routeColor: .red, routeWidth: 10)
             isRouting = true
             locationManager?.startUpdatingLocation()
         } else {
@@ -115,8 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             } catch {
                 print(error)
             }
-            newRouteButton.title = "Start"
-            newRouteButton.tintColor = .blue
+            newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
             locationManager?.stopUpdatingLocation()
         }
     }
@@ -126,8 +124,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             let alert = UIAlertController(title: "Внимание", message: "Закончить запись трека?", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
                 self.isRouting = false
-                self.newRouteButton.title = "Start"
-                self.newRouteButton.tintColor = .blue
+                
+                self.newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
                 self.locationManager?.stopUpdatingLocation()
                 self.startRestoreRoute()
             })
@@ -141,7 +139,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     }
     
     func startRestoreRoute() {
-        configurateRoute(routeColor: .green)
+        configurateRoute(routeColor: .blue, routeWidth: 10)
         do {
             let realm = try Realm()
             let coordinates = realm.objects(Coordinates.self)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gLv-JZ-POb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="P79-gz-zeB">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,24 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="oWP-Si-2mS">
+            <objects>
+                <navigationController id="P79-gz-zeB" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="Z5Q-GQ-7zo">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gLv-JZ-POb" kind="relationship" relationship="rootViewController" id="o4O-cF-nfe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yXE-1T-cGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="-152"/>
+        </scene>
+        <!--Controller-->
         <scene sceneID="2U0-P9-711">
             <objects>
                 <viewController id="gLv-JZ-POb" customClass="MainViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,6 +70,12 @@
                                     <action selector="openMap:" destination="gLv-JZ-POb" eventType="touchUpInside" id="MDP-WW-eDN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtm-8K-GlV">
+                                <rect key="frame" x="125.5" y="84" width="124" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -61,6 +84,7 @@
                             <constraint firstItem="wr9-Ca-yXK" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="8Hp-hI-9Ny"/>
                             <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="8Ve-RB-wsd"/>
                             <constraint firstItem="jnb-s4-nWX" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="AGv-YS-Tcf"/>
+                            <constraint firstItem="Gtm-8K-GlV" firstAttribute="centerX" secondItem="ddE-sS-yTQ" secondAttribute="centerX" id="DcQ-Ix-uKv"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" id="NE8-FF-MJW"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="top" secondItem="8cQ-Sw-vlM" secondAttribute="top" id="PSb-Ut-hMU"/>
                             <constraint firstItem="wr9-Ca-yXK" firstAttribute="top" secondItem="hNP-rh-v7K" secondAttribute="bottom" constant="10" id="PnP-sd-wIE"/>
@@ -70,20 +94,28 @@
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="top" secondItem="Fzd-sf-mBj" secondAttribute="top" constant="20" id="a0H-M9-dg7"/>
                             <constraint firstItem="jnb-s4-nWX" firstAttribute="top" secondItem="wr9-Ca-yXK" secondAttribute="bottom" constant="10" id="g7A-Fg-ofJ"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="trailing" secondItem="0Gh-0o-6v2" secondAttribute="trailing" id="k93-dj-QxN"/>
+                            <constraint firstItem="Gtm-8K-GlV" firstAttribute="top" secondItem="0Gh-0o-6v2" secondAttribute="top" constant="20" id="klT-Si-EW9"/>
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="mbG-3d-QqE"/>
                             <constraint firstItem="Fzd-sf-mBj" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" constant="40" id="pFZ-Zr-edG"/>
                             <constraint firstAttribute="bottom" secondItem="ddE-sS-yTQ" secondAttribute="bottom" id="xm3-yD-djv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Gh-0o-6v2"/>
                     </view>
+                    <navigationItem key="navigationItem" id="iF7-X2-8Ro"/>
                     <connections>
                         <outlet property="helloLabel" destination="hNP-rh-v7K" id="Rd9-Kg-wtr"/>
                         <outlet property="mainBox" destination="Fzd-sf-mBj" id="2Wt-Fr-arz"/>
-                        <segue destination="El9-eV-dgV" kind="custom" identifier="toMap" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="Oaw-of-yT9"/>
+                        <outlet property="router" destination="Zqs-tZ-PhD" id="XQB-Cw-zNi"/>
                         <segue destination="nj5-DX-Ycc" kind="custom" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="Bka-gS-usG"/>
+                        <segue destination="El9-eV-dgV" kind="show" identifier="toMap" id="IQZ-6E-pRr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="63z-Ni-Okm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="Zqs-tZ-PhD" customClass="BaseRouter" customModule="Maps" customModuleProvider="target">
+                    <connections>
+                        <outlet property="controller" destination="gLv-JZ-POb" id="tIE-Zr-a4e"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="1015.2" y="-151.57421289355324"/>
         </scene>

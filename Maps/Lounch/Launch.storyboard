@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Launch View Controller-->
+        <!--Controller-->
         <scene sceneID="tLx-8I-yWZ">
             <objects>
                 <viewController id="Z1i-Jz-bxr" customClass="LaunchViewController" customModule="Maps" customModuleProvider="target" sceneMemberID="viewController">
@@ -31,11 +31,17 @@
                         <viewLayoutGuide key="safeArea" id="ENf-Jd-skY"/>
                     </view>
                     <connections>
-                        <segue destination="UE8-y3-8uh" kind="show" identifier="toLogin" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="4uh-bd-qLF"/>
-                        <segue destination="B4F-cC-Ruw" kind="custom" identifier="toMain" customClass="RootSegue" customModule="Maps" customModuleProvider="target" id="gUm-V1-DS9"/>
+                        <outlet property="router" destination="yc8-1n-OOm" id="Brh-kg-C0N"/>
+                        <segue destination="UE8-y3-8uh" kind="custom" identifier="toLogin" customClass="RootSegue" customModule="Maps" id="4uh-bd-qLF"/>
+                        <segue destination="B4F-cC-Ruw" kind="custom" identifier="toMain" customClass="RootSegue" customModule="Maps" id="tEw-0S-t6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W88-cO-1rt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="yc8-1n-OOm" customClass="LaunchRouter" customModule="Maps" customModuleProvider="target">
+                    <connections>
+                        <outlet property="controller" destination="Z1i-Jz-bxr" id="Eq4-bZ-RQa"/>
+                    </connections>
+                </customObject>
             </objects>
             <point key="canvasLocation" x="97" y="108"/>
         </scene>
