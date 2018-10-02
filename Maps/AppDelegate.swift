@@ -35,5 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        blurEffectView.alpha = 0
+    }
+    
+    func applicationWillResignActive(_ application: UIApplication) {
+        let view = window?.rootViewController?.view
+        blurEffectView.frame = (view?.bounds)!
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        blurEffectView.alpha = 1
+        view?.addSubview(blurEffectView)
+    }
 
 }
