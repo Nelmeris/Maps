@@ -49,6 +49,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func login(_ sender: Any) {
+        let login = loginField.text!
+        let password = passwordField.text!
         if RealmService.shared.isInRealm(login) {
             if RealmService.shared.isValidate(login, password) {
                 // При удаче сохранить аутентификацию
