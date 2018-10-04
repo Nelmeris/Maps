@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class RestorePasswordViewController: UIViewController {
     
@@ -20,6 +22,7 @@ class RestorePasswordViewController: UIViewController {
     }
     
     @IBOutlet weak var loginField: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     @IBAction func restorePassword(_ sender: Any) {
         guard let login = loginField.text, login != "" else {

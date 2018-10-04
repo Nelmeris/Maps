@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
     
@@ -21,22 +23,32 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
+        Observable
+            .combineLatest(
+                self.loginField.rx.text,
+                self.passwordField.rx.text
+            )
+            .map { login, password in
+                return (login ?? "").count >= 3 && (password ?? "").count >= 8
+            }
+            .bind { [weak loginButton] inputFilled in
+                if inputFilled {
+                    loginButton?.isEnabled = true
+                    loginButton?.setTitleColor(.white, for: UIControl.State(rawValue: 0))
+                } else {
+                    loginButton?.isEnabled = false
+                    loginButton?.setTitleColor(.gray, for: UIControl.State(rawValue: 0))
+                }
+            }
     }
     
     @IBAction func login(_ sender: Any) {
-        guard let login = loginField.text, login != "",
-            let password = passwordField.text, password != ""
-            else {
-                let alert = UIAlertController(title: "Ошибка", message: "Введите все данные!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-        }
         if RealmService.shared.isInRealm(login) {
             if RealmService.shared.isValidate(login, password) {
                 // При удаче сохранить аутентификацию
@@ -66,5 +78,5 @@ class LoginViewController: UIViewController {
         // Перейти на страницу регистрации
         router.toRegistration()
     }
-    
+
 }
