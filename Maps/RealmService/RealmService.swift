@@ -86,7 +86,19 @@ class RealmService {
         }
         
         return user.password == password
-        
+    }
+    
+    /// Сохранение координат
+    func saveCoordinates(coordinates: [Coordinates]) {
+        do {
+            let realm = try Realm()
+            realm.beginWrite()
+            realm.deleteAll()
+            realm.add(coordinates)
+            try realm.commitWrite()
+        } catch {
+            print(error)
+        }
     }
     
 }

@@ -79,36 +79,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     @IBOutlet weak var newRouteButton: UIButton!
     @IBAction func startNewRoute(_ sender: Any) {
         if !isRouting {
-            newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
-            
+            configurateRoute(routeColor: .red, routeWidth: 10)
             beginBackgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
                 guard let strongSelf = self else { return }
                 UIApplication.shared.endBackgroundTask(strongSelf.beginBackgroundTask!)
                 strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
             }
             
-            configurateRoute(routeColor: .red, routeWidth: 10)
-            isRouting = true
+            newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
             locationManager.startUpdatingLocation()
         } else {
-            isRouting = false
-            var coordinates = [Coordinates]()
-            for index in UInt(0)..<(routePath?.count())! {
-                let coordinate = Coordinates(coordinate: (routePath?.coordinate(at: index))!)
-                coordinates.append(coordinate)
-            }
-            do {
-                let realm = try Realm()
-                realm.beginWrite()
-                realm.deleteAll()
-                realm.add(coordinates)
-                try realm.commitWrite()
-            } catch {
-                print(error)
+            if let coordinates = getCoordinatesOfPath(routePath) {
+                RealmService.shared.saveCoordinates(coordinates: coordinates)
             }
             newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
             locationManager.stopUpdatingLocation()
         }
+        isRouting = !isRouting
+    }
+    
+    func getCoordinatesOfPath(_ routePath: GMSMutablePath?) -> [Coordinates]? {
+        guard let routePath = routePath else { return nil }
+        var coordinates = [Coordinates]()
+        for index in UInt(0)..<routePath.count() {
+            let coordinate = Coordinates(coordinate: routePath.coordinate(at: index))
+            coordinates.append(coordinate)
+        }
+        return coordinates
     }
     
     @IBAction func restorePath(_ sender: Any) {

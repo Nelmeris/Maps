@@ -116,7 +116,6 @@
 		5727CE212161176200C8DC4A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				57A222EE216190FA0041764E /* RealmService */,
 				5727CE1D21610B7E00C8DC4A /* Login.storyboard */,
 				5727CE1F216116FF00C8DC4A /* LoginViewController.swift */,
 				5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */,
@@ -167,6 +166,7 @@
 		57833003215A4F5600621368 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				57A222EE216190FA0041764E /* RealmService */,
 				57A222E7216185C70041764E /* Segues */,
 				57A222E6216185C10041764E /* Routers */,
 				5727CE3321617FD800C8DC4A /* Main Menu */,
