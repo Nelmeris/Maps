@@ -8,7 +8,7 @@
 
 import RealmSwift
 
-class User: Object {
+class UserRealmModel: Object {
     
     @objc dynamic var login: String = ""
     @objc dynamic var password: String = ""

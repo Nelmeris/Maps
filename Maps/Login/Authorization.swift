@@ -33,7 +33,7 @@ class Authorization {
         UserDefaults.standard.removeObject(forKey: "AuthDate")
     }
     
-    func login(user: User) {
+    func login(user: UserRealmModel) {
         UserDefaults.standard.set(true, forKey: "isAuth")
         UserDefaults.standard.set(Date().timeIntervalSince1970, forKey: "AuthDate")
         UserDefaults.standard.set(user.login, forKey: "UserNickname")

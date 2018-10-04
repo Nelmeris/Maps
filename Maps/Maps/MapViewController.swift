@@ -62,7 +62,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             }
             
             strongSelf.setCamera(location.coordinate)
-            
         }
     }
     
@@ -78,69 +77,71 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBOutlet weak var newRouteButton: UIButton!
     @IBAction func startNewRoute(_ sender: Any) {
-        if !isRouting {
-            configurateRoute(routeColor: .red, routeWidth: 10)
-            beginBackgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
-                guard let strongSelf = self else { return }
-                UIApplication.shared.endBackgroundTask(strongSelf.beginBackgroundTask!)
-                strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
-            }
-            
-            newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
-            locationManager.startUpdatingLocation()
-        } else {
-            if let coordinates = getCoordinatesOfPath(routePath) {
-                RealmService.shared.saveCoordinates(coordinates: coordinates)
-            }
-            newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
-            locationManager.stopUpdatingLocation()
-        }
+        isRouting ? stopRouting() : startRouting()
         isRouting = !isRouting
     }
     
-    func getCoordinatesOfPath(_ routePath: GMSMutablePath?) -> [Coordinates]? {
+    /// Старт записи пути
+    func startRouting() {
+        configurateRoute(routeColor: .red, routeWidth: 10)
+        beginBackgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+            guard let strongSelf = self else { return }
+            UIApplication.shared.endBackgroundTask(strongSelf.beginBackgroundTask!)
+            strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
+        }
+        
+        newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
+        locationManager.startUpdatingLocation()
+    }
+    
+    /// Остановка записи пути и сохранение данных в базу
+    func stopRouting() {
+        if let coordinates = getCoordinatesOfPath(routePath) {
+            RealmService.shared.saveCoordinates(coordinates: coordinates)
+        }
+        newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
+        locationManager.stopUpdatingLocation()
+    }
+    
+    /// Разбор путя на координаты
+    func getCoordinatesOfPath(_ routePath: GMSMutablePath?) -> [CoordinatesRealmModel]? {
         guard let routePath = routePath else { return nil }
-        var coordinates = [Coordinates]()
+        var coordinates = [CoordinatesRealmModel]()
         for index in UInt(0)..<routePath.count() {
-            let coordinate = Coordinates(coordinate: routePath.coordinate(at: index))
+            let coordinate = CoordinatesRealmModel(coordinate: routePath.coordinate(at: index))
             coordinates.append(coordinate)
         }
         return coordinates
     }
     
+    /// Восстановление путя из базы
     @IBAction func restorePath(_ sender: Any) {
-        if isRouting {
-            let alert = UIAlertController(title: "Внимание", message: "Закончить запись трека?", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-                self.isRouting = false
-                
-                self.newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
-                self.locationManager.stopUpdatingLocation()
-                self.startRestoreRoute()
-            })
-            alert.addAction(UIAlertAction(title: "Отмена", style: .cancel) { action in
-                return
-            })
-            self.present(alert, animated: true, completion: nil)
-        } else {
+        guard isRouting else {
             startRestoreRoute()
+            return
         }
+        
+        let alert = UIAlertController(title: "Внимание", message: "Закончить запись трека?", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            self.isRouting = false
+            
+            self.newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
+            self.locationManager.stopUpdatingLocation()
+            self.startRestoreRoute()
+        })
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel))
+        self.present(alert, animated: true, completion: nil)
     }
     
     func startRestoreRoute() {
         configurateRoute(routeColor: .blue, routeWidth: 10)
-        do {
-            let realm = try Realm()
-            let coordinates = realm.objects(Coordinates.self)
-            for coordinate in coordinates {
-                let CLCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-                setRoute(CLCoordinate)
-            }
-            let bounds = GMSCoordinateBounds(path: routePath!)
-            mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 100))
-        } catch {
-            print(error)
+        guard let coordinates = RealmService.shared.loadCoordinates() else { return }
+        for coordinate in coordinates {
+            let CLCoordinate = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            setRoute(CLCoordinate)
         }
+        let bounds = GMSCoordinateBounds(path: routePath!)
+        mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 100))
     }
     
 }

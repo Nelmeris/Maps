@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import CoreLocation
 
 class RealmService {
     
@@ -18,10 +19,10 @@ class RealmService {
         case nonExistentUser, preExistentUser
     }
     
-    private func getUser(_ nickname: String) -> User? {
+    private func getUser(_ nickname: String) -> UserRealmModel? {
         do {
             let realm = try Realm()
-            let users = realm.objects(User.self)
+            let users = realm.objects(UserRealmModel.self)
             
             for user in users {
                 if user.login.lowercased() == nickname.lowercased() {
@@ -37,7 +38,7 @@ class RealmService {
     /// Регистрация нового пользователя
     func createUser(_ nickname: String, _ password: String) throws {
         if getUser(nickname) == nil {
-            let user = User(nickname, password)
+            let user = UserRealmModel(nickname, password)
             do {
                 let realm = try Realm()
                 realm.beginWrite()
@@ -89,7 +90,7 @@ class RealmService {
     }
     
     /// Сохранение координат
-    func saveCoordinates(coordinates: [Coordinates]) {
+    func saveCoordinates(coordinates: [CoordinatesRealmModel]) {
         do {
             let realm = try Realm()
             realm.beginWrite()
@@ -98,6 +99,19 @@ class RealmService {
             try realm.commitWrite()
         } catch {
             print(error)
+        }
+    }
+    
+    /// Загрузка координат
+    func loadCoordinates() -> [CoordinatesRealmModel]? {
+        do {
+            let realm = try Realm()
+            var coordinatesArray = [CoordinatesRealmModel]()
+            coordinatesArray.append(contentsOf: realm.objects(CoordinatesRealmModel.self))
+            return coordinatesArray
+        } catch {
+            print(error)
+            return nil
         }
     }
     

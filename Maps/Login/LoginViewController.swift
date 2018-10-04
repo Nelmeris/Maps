@@ -27,8 +27,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barStyle = .black
-        navigationController?.navigationBar.tintColor = .white
         Observable
             .combineLatest(
                 self.loginField.rx.text,
@@ -38,37 +36,35 @@ class LoginViewController: UIViewController {
                 return (login ?? "").count >= 3 && (password ?? "").count >= 8
             }
             .bind { [weak loginButton] inputFilled in
-                if inputFilled {
-                    loginButton?.isEnabled = true
-                    loginButton?.setTitleColor(.white, for: UIControl.State(rawValue: 0))
-                } else {
-                    loginButton?.isEnabled = false
-                    loginButton?.setTitleColor(.gray, for: UIControl.State(rawValue: 0))
-                }
+                loginButton?.isEnabled = inputFilled
+                loginButton?.setTitleColor(inputFilled ? .white : .gray, for: UIControl.State(rawValue: 0))
             }
     }
     
     @IBAction func login(_ sender: Any) {
         let login = loginField.text!
         let password = passwordField.text!
-        if RealmService.shared.isInRealm(login) {
-            if RealmService.shared.isValidate(login, password) {
-                // При удаче сохранить аутентификацию
-                let user = User(login, password)
-                Authorization.shared.login(user: user)
-                // Перейти на главную страницу
-                router.toMain()
-            } else {
-                // При ошибке в пароле
-                let alert = UIAlertController(title: "Ошибка", message: "Неверный пароль!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
-            }
-        } else {
+        
+        // При отсутствии пользователя в базе
+        guard RealmService.shared.isInRealm(login) else {
             let alert = UIAlertController(title: "Ошибка", message: "Пользователь не найден", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default))
             self.present(alert, animated: true, completion: nil)
+            return
         }
+        
+        // При ошибке в пароле
+        guard RealmService.shared.isValidate(login, password) else {
+            let alert = UIAlertController(title: "Ошибка", message: "Неверный пароль!", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        // При удаче сохранить аутентификацию и вернуться на страницу авторизации
+        let user = UserRealmModel(login, password)
+        Authorization.shared.login(user: user)
+        router.toMain()
     }
     
     @IBAction func restorePassword(_ sender: Any) {
