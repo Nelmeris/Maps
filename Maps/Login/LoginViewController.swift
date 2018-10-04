@@ -27,6 +27,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
         Observable
             .combineLatest(
                 self.loginField.rx.text,
@@ -62,8 +64,7 @@ class LoginViewController: UIViewController {
         }
         
         // При удаче сохранить аутентификацию и вернуться на страницу авторизации
-        let user = UserRealmModel(login, password)
-        Authorization.shared.login(user: user)
+        Authorization.shared.login(user: UserRealmModel(login, password))
         router.toMain()
     }
     

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import RealmSwift
+import RxSwift
+import RxCocoa
 
 class RegistrationViewController: UIViewController {
     
@@ -23,25 +24,27 @@ class RegistrationViewController: UIViewController {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var repeatPasswordField: UITextField!
     
+    @IBOutlet weak var registrButton: UIButton!
+    
+    override func viewDidLoad() {
+        Observable
+            .combineLatest(
+                self.loginField.rx.text,
+                self.passwordField.rx.text,
+                self.repeatPasswordField.rx.text
+            )
+            .map { login, password, repeatPassword in
+                return (login ?? "").count >= 3 && (password ?? "").count >= 8 && password == repeatPassword
+            }
+            .bind { [weak registrButton] inputFilled in
+                registrButton?.isEnabled = inputFilled
+                registrButton?.setTitleColor(inputFilled ? .white : .gray, for: UIControl.State(rawValue: 0))
+        }
+    }
+    
     @IBAction func registration(_ sender: Any) {
-        // Проверка на полноту введенных данных
-        guard let login = loginField.text, login != "",
-            let password = passwordField.text, password != "",
-            let repeatPassword = repeatPasswordField.text, repeatPassword != ""
-            else {
-                let alert = UIAlertController(title: "Ошибка", message: "Введите все данные!", preferredStyle: UIAlertController.Style.alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default))
-                self.present(alert, animated: true, completion: nil)
-                return
-        }
-        
-        // Проверка совпадения паролей
-        guard password == repeatPassword else {
-            let alert = UIAlertController(title: "Ошибка", message: "Пароли не совпадают!", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
-            self.present(alert, animated: true, completion: nil)
-            return
-        }
+        let login = loginField.text!
+        let password = passwordField.text!
         do {
             try RealmService.shared.createUser(login, password)
             let alert = UIAlertController(title: "Успешно!", message: "Вы успешно зарегистрировались", preferredStyle: UIAlertController.Style.alert)
