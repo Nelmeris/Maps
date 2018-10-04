@@ -15,6 +15,7 @@
 		5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2F216154E000C8DC4A /* RootSegue.swift */; };
 		5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE3121615B1300C8DC4A /* MainViewController.swift */; };
 		5727CE3521617FF200C8DC4A /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE3421617FF200C8DC4A /* MainMenu.storyboard */; };
+		576E8E85216617E800418962 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E8E84216617E800418962 /* LocationManager.swift */; };
 		57833005215A4F5600621368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833004215A4F5600621368 /* AppDelegate.swift */; };
 		5783300A215A4F5600621368 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57833008215A4F5600621368 /* Map.storyboard */; };
 		5783300C215A4F5800621368 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5783300B215A4F5800621368 /* Assets.xcassets */; };
@@ -32,6 +33,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		576E8E8C216617E900418962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57D3E3A3215AA60D00FD7007 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8D14743670BE5F3DAA0DB8E487028992;
+			remoteInfo = RxCocoa;
+		};
+		576E8E8E216617E900418962 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 57D3E3A3215AA60D00FD7007 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E7244313223CB7AF5F2EAD79BE713716;
+			remoteInfo = RxSwift;
+		};
 		57D3E3A8215AA60E00FD7007 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 57D3E3A3215AA60D00FD7007 /* Pods.xcodeproj */;
@@ -66,6 +81,7 @@
 		5727CE2F216154E000C8DC4A /* RootSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSegue.swift; sourceTree = "<group>"; };
 		5727CE3121615B1300C8DC4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5727CE3421617FF200C8DC4A /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		576E8E84216617E800418962 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		57833001215A4F5600621368 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57833004215A4F5600621368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57833009215A4F5600621368 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Map.storyboard; sourceTree = "<group>"; };
@@ -116,6 +132,7 @@
 				57833008215A4F5600621368 /* Map.storyboard */,
 				57833016215A542900621368 /* MapViewController.swift */,
 				57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */,
+				576E8E84216617E800418962 /* LocationManager.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -198,6 +215,8 @@
 				57D3E3A9215AA60E00FD7007 /* Pods_Maps.framework */,
 				57D3E3AB215AA60E00FD7007 /* Realm.framework */,
 				57F9E1B4215ABBB900BCE43B /* RealmSwift.framework */,
+				576E8E8D216617E900418962 /* RxCocoa.framework */,
+				576E8E8F216617E900418962 /* RxSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -288,6 +307,20 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		576E8E8D216617E900418962 /* RxCocoa.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxCocoa.framework;
+			remoteRef = 576E8E8C216617E900418962 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		576E8E8F216617E900418962 /* RxSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RxSwift.framework;
+			remoteRef = 576E8E8E216617E900418962 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		57D3E3A9215AA60E00FD7007 /* Pods_Maps.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -395,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5727CE1C2161025D00C8DC4A /* UserRealmModel.swift in Sources */,
+				576E8E85216617E800418962 /* LocationManager.swift in Sources */,
 				57A222ED21618F280041764E /* Authorization.swift in Sources */,
 				57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */,
 				57833005215A4F5600621368 /* AppDelegate.swift in Sources */,

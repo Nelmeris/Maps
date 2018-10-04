@@ -15,7 +15,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     
     @IBOutlet weak var mapView: GMSMapView!
     
-    var locationManager: CLLocationManager?
+    var locationManager = LocationManager.instance
     
     var route: GMSPolyline?
     var routePath: GMSMutablePath?
@@ -23,31 +23,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var isRouting: Bool = false
     
     var beginBackgroundTask: UIBackgroundTaskIdentifier?
-    
-    fileprivate func configurateMapView() {
-        mapView.settings.rotateGestures = true
-        mapView.delegate = self
-    }
-    
-    fileprivate func configurateLocationManager() {
-        locationManager = CLLocationManager()
-        
-        locationManager?.allowsBackgroundLocationUpdates = true
-        locationManager?.requestAlwaysAuthorization()
-        locationManager?.pausesLocationUpdatesAutomatically = false
-        locationManager?.startMonitoringSignificantLocationChanges()
-        locationManager?.delegate = self
-    }
-    
-    fileprivate func configurateRoute(routeColor: UIColor = .red, routeWidth: CGFloat = 4.0) {
-        isRouting = false
-        route?.map = nil
-        route = GMSPolyline()
-        route?.strokeColor = routeColor
-        route?.strokeWidth = routeWidth
-        routePath = GMSMutablePath()
-        route?.map = mapView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,16 +47,33 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         route?.path = routePath
     }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let currentLocation = locations.last?.coordinate else { return }
-        
-        let coordinate = CLLocationCoordinate2D(latitude: currentLocation.latitude, longitude: currentLocation.longitude)
-        
-        if isRouting {
-            setRoute(coordinate)
+    fileprivate func configurateMapView() {
+        mapView.settings.rotateGestures = true
+        mapView.delegate = self
+    }
+    
+    fileprivate func configurateLocationManager() {
+        locationManager.location.asObservable().bind { [weak self] location in
+            guard let strongSelf = self else { return }
+            guard let location = location else { return }
+            
+            if strongSelf.isRouting {
+                strongSelf.setRoute(location.coordinate)
+            }
+            
+            strongSelf.setCamera(location.coordinate)
+            
         }
-        
-        setCamera(coordinate)
+    }
+    
+    fileprivate func configurateRoute(routeColor: UIColor = .red, routeWidth: CGFloat = 4.0) {
+        isRouting = false
+        route?.map = nil
+        route = GMSPolyline()
+        route?.strokeColor = routeColor
+        route?.strokeWidth = routeWidth
+        routePath = GMSMutablePath()
+        route?.map = mapView
     }
     
     @IBOutlet weak var newRouteButton: UIButton!
@@ -97,7 +89,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             
             configurateRoute(routeColor: .red, routeWidth: 10)
             isRouting = true
-            locationManager?.startUpdatingLocation()
+            locationManager.startUpdatingLocation()
         } else {
             isRouting = false
             var coordinates = [Coordinates]()
@@ -115,7 +107,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 print(error)
             }
             newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
-            locationManager?.stopUpdatingLocation()
+            locationManager.stopUpdatingLocation()
         }
     }
     
@@ -126,7 +118,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
                 self.isRouting = false
                 
                 self.newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
-                self.locationManager?.stopUpdatingLocation()
+                self.locationManager.stopUpdatingLocation()
                 self.startRestoreRoute()
             })
             alert.addAction(UIAlertAction(title: "Отмена", style: .cancel) { action in
