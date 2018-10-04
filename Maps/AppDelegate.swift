@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         blurEffectView.alpha = 1
         view?.addSubview(blurEffectView)
+
     }
 
 }
