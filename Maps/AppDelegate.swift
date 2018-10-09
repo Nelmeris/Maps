@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import RealmSwift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,24 +34,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.makeKeyAndVisible()
         
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            guard granted else {
+                print("Разрешение не получено")
+                return
+            }
+            
+            self.sendNotificationRequest(
+                content: self.makeNotificationContent(),
+                trigger: self.makeIntervalNotificationTrigger()
+            )
+        }
+        
         return true
     }
     
     /// View эффекта блюра
-    let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+    var blurEffectView: UIVisualEffectView?
     
     /// Убрать защитную шторку при открытии приложения
     func applicationDidBecomeActive(_ application: UIApplication) {
-        blurEffectView.alpha = 0
+        blurEffectView?.removeFromSuperview()
+        blurEffectView = nil
     }
     
     /// Установить защитную шторку при сворачивании приложения
     func applicationWillResignActive(_ application: UIApplication) {
-        let view = window?.rootViewController?.view
-        blurEffectView.frame = (view?.bounds)!
+        guard let view = window?.rootViewController?.view else { return }
+        self.blurEffectView = getBlurEffectView(view)
+        window?.rootViewController?.view.addSubview(self.blurEffectView!)
+    }
+    
+    func getBlurEffectView(_ view: UIView) -> UIVisualEffectView {
+        let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: UIBlurEffect.Style.dark))
+        blurEffectView.frame = view.bounds
         blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        blurEffectView.alpha = 1
-        window?.rootViewController?.view.addSubview(blurEffectView)
+        return blurEffectView
+    }
+    
+    func makeNotificationContent() -> UNNotificationContent {
+        let content = UNMutableNotificationContent()
+        content.title = "Мы вас потеряли!"
+        content.body = "Вы свернули приложение и не закрыли его, вы не забыли про нас? Закройте приложение, чтобы мы не тратили ваши ресурсы!"
+        content.badge = 1
+        return content
+    }
+    
+    func makeIntervalNotificationTrigger() -> UNNotificationTrigger {
+        return UNTimeIntervalNotificationTrigger(timeInterval: 1800, repeats: false)
+    }
+    
+    func sendNotificationRequest(
+        content: UNNotificationContent,
+        trigger: UNNotificationTrigger) {
+        let request = UNNotificationRequest(identifier: "alarm", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        center.removeDeliveredNotifications(withIdentifiers: ["alarm"])
+        center.add(request) { error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        center.getDeliveredNotifications { notifications in
+            print("\n\n\n\n")
+            for notification in notifications {
+                print("\n\n\n\n")
+            }
+        }
     }
 
 }

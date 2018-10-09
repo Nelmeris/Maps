@@ -85,7 +85,7 @@ class RealmService {
             isInRealm(nickname) else {
                 return false
         }
-        
+         
         return user.password == password
     }
     
