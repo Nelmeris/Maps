@@ -96,12 +96,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 print(error.localizedDescription)
             }
         }
-        center.getDeliveredNotifications { notifications in
-            print("\n\n\n\n")
-            for notification in notifications {
-                print("\n\n\n\n")
-            }
-        }
     }
 
 }
