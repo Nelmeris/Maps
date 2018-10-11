@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
             }
             .bind { [weak loginButton] inputFilled in
                 loginButton?.isEnabled = inputFilled
-                loginButton?.setTitleColor(inputFilled ? .white : .gray, for: UIControl.State(rawValue: 0))
+                loginButton?.titleLabel?.textColor = inputFilled ? .white : .gray
             }
     }
     

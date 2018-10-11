@@ -21,20 +21,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view clipsSubviews="YES" alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fzd-sf-mBj">
-                                <rect key="frame" x="40" y="209" width="295" height="249.5"/>
+                                <rect key="frame" x="40" y="149.5" width="295" height="368.5"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="wWz-oq-qoM"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Добро пожаловать, Nickname!" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hNP-rh-v7K">
-                                <rect key="frame" x="55" y="229" width="265" height="105.5"/>
+                                <rect key="frame" x="55" y="169.5" width="265" height="120.5"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="GurmukhiMN" family="Gurmukhi MN" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnb-s4-nWX">
-                                <rect key="frame" x="151.5" y="396.5" width="72" height="42"/>
+                                <rect key="frame" x="151.5" y="456" width="72" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Выйти">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,13 +44,33 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wr9-Ca-yXK">
-                                <rect key="frame" x="104" y="344.5" width="167" height="42"/>
+                                <rect key="frame" x="104" y="300" width="167" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Открыть карту">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="openMap:" destination="gLv-JZ-POb" eventType="touchUpInside" id="MDP-WW-eDN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJv-kA-4Yp">
+                                <rect key="frame" x="86" y="352" width="203" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Изменить маркер">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="changeMarker:" destination="gLv-JZ-POb" eventType="touchUpInside" id="HIK-2w-0M3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5Q-2h-niu">
+                                <rect key="frame" x="86.5" y="404" width="202" height="42"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Сбросить маркер">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetMarker:" destination="gLv-JZ-POb" eventType="touchUpInside" id="jtT-UE-cR7"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtm-8K-GlV">
@@ -62,32 +82,41 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="BJv-kA-4Yp" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="0AL-K8-8WI"/>
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="trailing" secondItem="Fzd-sf-mBj" secondAttribute="trailing" constant="-15" id="78Y-C7-Wwh"/>
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="leading" secondItem="Fzd-sf-mBj" secondAttribute="leading" constant="15" id="7gQ-9E-ZsQ"/>
                             <constraint firstItem="wr9-Ca-yXK" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="8Hp-hI-9Ny"/>
                             <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="8Ve-RB-wsd"/>
                             <constraint firstItem="jnb-s4-nWX" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="AGv-YS-Tcf"/>
                             <constraint firstItem="Gtm-8K-GlV" firstAttribute="centerX" secondItem="ddE-sS-yTQ" secondAttribute="centerX" id="DcQ-Ix-uKv"/>
+                            <constraint firstItem="n5Q-2h-niu" firstAttribute="top" secondItem="BJv-kA-4Yp" secondAttribute="bottom" constant="10" id="I0s-uU-4ID"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" id="NE8-FF-MJW"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="top" secondItem="8cQ-Sw-vlM" secondAttribute="top" id="PSb-Ut-hMU"/>
                             <constraint firstItem="wr9-Ca-yXK" firstAttribute="top" secondItem="hNP-rh-v7K" secondAttribute="bottom" constant="10" id="PnP-sd-wIE"/>
                             <constraint firstItem="0Gh-0o-6v2" firstAttribute="trailing" secondItem="Fzd-sf-mBj" secondAttribute="trailing" constant="40" id="Rye-1y-05h"/>
                             <constraint firstItem="jnb-s4-nWX" firstAttribute="bottom" secondItem="Fzd-sf-mBj" secondAttribute="bottom" constant="-20" id="XUZ-e2-nKB"/>
+                            <constraint firstItem="n5Q-2h-niu" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="Y04-do-v22"/>
                             <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerY" secondItem="8cQ-Sw-vlM" secondAttribute="centerY" id="ZJ6-yX-eVg"/>
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="top" secondItem="Fzd-sf-mBj" secondAttribute="top" constant="20" id="a0H-M9-dg7"/>
-                            <constraint firstItem="jnb-s4-nWX" firstAttribute="top" secondItem="wr9-Ca-yXK" secondAttribute="bottom" constant="10" id="g7A-Fg-ofJ"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerY" secondItem="8cQ-Sw-vlM" secondAttribute="centerY" id="e28-10-dJa"/>
+                            <constraint firstItem="BJv-kA-4Yp" firstAttribute="top" secondItem="wr9-Ca-yXK" secondAttribute="bottom" constant="10" id="for-ly-9XC"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="iZa-Nr-1lD"/>
                             <constraint firstItem="ddE-sS-yTQ" firstAttribute="trailing" secondItem="0Gh-0o-6v2" secondAttribute="trailing" id="k93-dj-QxN"/>
                             <constraint firstItem="Gtm-8K-GlV" firstAttribute="top" secondItem="0Gh-0o-6v2" secondAttribute="top" constant="20" id="klT-Si-EW9"/>
                             <constraint firstItem="hNP-rh-v7K" firstAttribute="centerX" secondItem="Fzd-sf-mBj" secondAttribute="centerX" id="mbG-3d-QqE"/>
                             <constraint firstItem="Fzd-sf-mBj" firstAttribute="leading" secondItem="0Gh-0o-6v2" secondAttribute="leading" constant="40" id="pFZ-Zr-edG"/>
+                            <constraint firstItem="jnb-s4-nWX" firstAttribute="top" secondItem="n5Q-2h-niu" secondAttribute="bottom" constant="10" id="pQV-tA-PMM"/>
+                            <constraint firstItem="Fzd-sf-mBj" firstAttribute="centerX" secondItem="8cQ-Sw-vlM" secondAttribute="centerX" id="ws0-K2-bri"/>
                             <constraint firstAttribute="bottom" secondItem="ddE-sS-yTQ" secondAttribute="bottom" id="xm3-yD-djv"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Gh-0o-6v2"/>
                     </view>
                     <navigationItem key="navigationItem" id="iF7-X2-8Ro"/>
                     <connections>
+                        <outlet property="changeMarkerButton" destination="BJv-kA-4Yp" id="O1Y-3A-pA5"/>
                         <outlet property="helloLabel" destination="hNP-rh-v7K" id="Rd9-Kg-wtr"/>
                         <outlet property="mainBox" destination="Fzd-sf-mBj" id="2Wt-Fr-arz"/>
+                        <outlet property="resetMarkerButton" destination="n5Q-2h-niu" id="vpl-BD-inK"/>
                         <outlet property="router" destination="Zqs-tZ-PhD" id="XQB-Cw-zNi"/>
                     </connections>
                 </viewController>

@@ -34,6 +34,17 @@
                                     <action selector="startNewRoute:" destination="AWK-cl-90d" eventType="touchUpInside" id="2Ph-mR-RzC"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG6-ld-Npp">
+                                <rect key="frame" x="15" y="602" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="XfX-vh-gse"/>
+                                    <constraint firstAttribute="width" constant="50" id="whO-nW-MSp"/>
+                                </constraints>
+                                <state key="normal" image="Location"/>
+                                <connections>
+                                    <action selector="setMyLocation:" destination="AWK-cl-90d" eventType="touchUpInside" id="1FU-xS-zUV"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJB-bv-Mmc">
                                 <rect key="frame" x="8" y="28" width="45" height="45"/>
                                 <constraints>
@@ -53,11 +64,13 @@
                             <constraint firstItem="jpS-5E-0sk" firstAttribute="top" secondItem="U6c-sd-wBf" secondAttribute="top" id="8MQ-rD-qu9"/>
                             <constraint firstItem="bJB-bv-Mmc" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" constant="8" id="JhG-Rm-Nrb"/>
                             <constraint firstItem="zn4-Fg-gYq" firstAttribute="top" secondItem="U6c-sd-wBf" secondAttribute="top" constant="8" id="JxI-xt-Oxa"/>
+                            <constraint firstItem="bG6-ld-Npp" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" constant="15" id="M6d-4Q-9Wr"/>
                             <constraint firstItem="bhd-cU-NUz" firstAttribute="trailing" secondItem="U6c-sd-wBf" secondAttribute="trailing" id="TEP-Ce-EAa"/>
                             <constraint firstAttribute="bottom" secondItem="bhd-cU-NUz" secondAttribute="bottom" id="c2c-5k-cfQ"/>
                             <constraint firstItem="jpS-5E-0sk" firstAttribute="trailing" secondItem="U6c-sd-wBf" secondAttribute="trailing" id="eql-Te-dx7"/>
                             <constraint firstItem="jpS-5E-0sk" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" id="fVQ-Ya-ylv"/>
                             <constraint firstItem="bhd-cU-NUz" firstAttribute="top" secondItem="lk1-A7-cV4" secondAttribute="top" id="jBD-xi-Yod"/>
+                            <constraint firstItem="U6c-sd-wBf" firstAttribute="bottom" secondItem="bG6-ld-Npp" secondAttribute="bottom" constant="15" id="lZN-FO-F3F"/>
                             <constraint firstAttribute="bottom" secondItem="jpS-5E-0sk" secondAttribute="bottom" id="o2r-7F-i6f"/>
                             <constraint firstItem="bhd-cU-NUz" firstAttribute="leading" secondItem="U6c-sd-wBf" secondAttribute="leading" id="wmc-Nx-kTm"/>
                         </constraints>
@@ -75,6 +88,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Location" width="102.40000152587891" height="102.40000152587891"/>
         <image name="Map" width="1440" height="2182"/>
         <image name="ResetRoute" width="47.261539459228516" height="47.261539459228516"/>
         <image name="StartRouting" width="102.40000152587891" height="102.40000152587891"/>

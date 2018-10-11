@@ -38,7 +38,7 @@ class RegistrationViewController: UIViewController {
             }
             .bind { [weak registrButton] inputFilled in
                 registrButton?.isEnabled = inputFilled
-                registrButton?.setTitleColor(inputFilled ? .white : .gray, for: UIControl.State(rawValue: 0))
+                registrButton?.titleLabel?.textColor = inputFilled ? .white : .gray
         }
     }
     

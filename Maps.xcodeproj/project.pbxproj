@@ -15,6 +15,7 @@
 		5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2F216154E000C8DC4A /* RootSegue.swift */; };
 		5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE3121615B1300C8DC4A /* MainViewController.swift */; };
 		5727CE3521617FF200C8DC4A /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE3421617FF200C8DC4A /* MainMenu.storyboard */; };
+		5755BAC5216FB781003F899D /* UIImage Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755BAC4216FB781003F899D /* UIImage Resize.swift */; };
 		576E8E85216617E800418962 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E8E84216617E800418962 /* LocationManager.swift */; };
 		57833005215A4F5600621368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833004215A4F5600621368 /* AppDelegate.swift */; };
 		5783300A215A4F5600621368 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57833008215A4F5600621368 /* Map.storyboard */; };
@@ -81,6 +82,7 @@
 		5727CE2F216154E000C8DC4A /* RootSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSegue.swift; sourceTree = "<group>"; };
 		5727CE3121615B1300C8DC4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5727CE3421617FF200C8DC4A /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
+		5755BAC4216FB781003F899D /* UIImage Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Resize.swift"; sourceTree = "<group>"; };
 		576E8E84216617E800418962 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		57833001215A4F5600621368 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57833004215A4F5600621368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5783300D215A4F5800621368 /* LaunchScreen.storyboard */,
 				57833010215A4F5800621368 /* Info.plist */,
 				57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */,
+				5755BAC4216FB781003F899D /* UIImage Resize.swift */,
 			);
 			path = Maps;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 				576E8E85216617E800418962 /* LocationManager.swift in Sources */,
 				57A222ED21618F280041764E /* Authorization.swift in Sources */,
 				57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */,
+				5755BAC5216FB781003F899D /* UIImage Resize.swift in Sources */,
 				57833005215A4F5600621368 /* AppDelegate.swift in Sources */,
 				5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */,
 				57A222F221619EC30041764E /* MainRouter.swift in Sources */,

@@ -14,6 +14,7 @@ import RealmSwift
 class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapViewDelegate {
     
     @IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var newRouteButton: UIButton!
     
     var locationManager = LocationManager.instance
     
@@ -21,6 +22,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     var routePath: GMSMutablePath?
     
     var isRouting: Bool = false
+    
+    var markerPosition: GMSMarker?
     
     var beginBackgroundTask: UIBackgroundTaskIdentifier?
     
@@ -30,15 +33,18 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         configurateMapView()
         configurateRoute()
         configurateLocationManager()
+        configurateMarker()
     }
     
-    fileprivate func setMarker(_ coordinate: CLLocationCoordinate2D) {
-        let marker = GMSMarker(position: coordinate)
+    fileprivate func setMarkerPosition(_ coordinate: CLLocationCoordinate2D) {
+        guard let marker = markerPosition else { return }
+        marker.position = coordinate
         marker.map = mapView
     }
     
     fileprivate func setCamera(_ coordinate: CLLocationCoordinate2D) {
         let camera = GMSCameraPosition.camera(withTarget: coordinate, zoom: 17)
+        setMarkerPosition(coordinate)
         mapView.animate(to: camera)
     }
     
@@ -50,6 +56,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
     fileprivate func configurateMapView() {
         mapView.settings.rotateGestures = true
         mapView.delegate = self
+    }
+    
+    fileprivate func configurateMarker() {
+        markerPosition = GMSMarker()
+        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first
+        let markerImagePath = documentsDirectory?.appendingPathComponent("MarkerImage.png").path
+        if let image = UIImage(contentsOfFile: markerImagePath!) {
+            markerPosition?.icon = UIImage.resize(image: image, targetSize: CGSize(width: 50, height: 50))
+        }
     }
     
     fileprivate func configurateLocationManager() {
@@ -75,7 +91,6 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         route?.map = mapView
     }
     
-    @IBOutlet weak var newRouteButton: UIButton!
     @IBAction func startNewRoute(_ sender: Any) {
         isRouting ? stopRouting() : startRouting()
         isRouting = !isRouting
@@ -90,7 +105,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             strongSelf.beginBackgroundTask = UIBackgroundTaskIdentifier.invalid
         }
         
-        newRouteButton.setImage(#imageLiteral(resourceName: "StopRouting"), for: UIControl.State(rawValue: 0))
+        newRouteButton.imageView?.image = #imageLiteral(resourceName: "StopRouting")
         locationManager.startUpdatingLocation()
     }
     
@@ -99,7 +114,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         if let coordinates = getCoordinatesOfPath(routePath) {
             RealmService.shared.saveCoordinates(coordinates: coordinates)
         }
-        newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
+        newRouteButton.imageView?.image = #imageLiteral(resourceName: "StopRouting")
         locationManager.stopUpdatingLocation()
     }
     
@@ -125,7 +140,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
         alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
             self.isRouting = false
             
-            self.newRouteButton.setImage(#imageLiteral(resourceName: "StartRouting"), for: UIControl.State(rawValue: 0))
+            self.newRouteButton.imageView?.image = #imageLiteral(resourceName: "StartRouting")
             self.locationManager.stopUpdatingLocation()
             self.startRestoreRoute()
         })
@@ -141,7 +156,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, GMSMapView
             setRoute(CLCoordinate)
         }
         let bounds = GMSCoordinateBounds(path: routePath!)
+        markerPosition?.map = nil
         mapView.animate(with: GMSCameraUpdate.fit(bounds, withPadding: 100))
     }
+    
+    @IBAction func setMyLocation(_ sender: Any) {
+        guard let location = locationManager.location.value else { return }
+        setCamera(location.coordinate)
+    }
+    
+    
     
 }

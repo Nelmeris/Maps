@@ -32,7 +32,7 @@ class RestorePasswordViewController: UIViewController {
             }
             .bind { [weak button] inputFilled in
                 button?.isEnabled = inputFilled
-                button?.setTitleColor(inputFilled ? .white : .gray, for: UIControl.State(rawValue: 0))
+                button?.titleLabel?.textColor = inputFilled ? .white : .gray
             }
     }
     
