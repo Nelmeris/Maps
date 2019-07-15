@@ -1,5 +1,5 @@
 //
-//  UIImage+Resize.swift
+//  UIImageResize.swift
 //
 //  Created by Marcos Griselli on 6/9/17.
 //  Copyright © 2017 Marcos Griselli. All rights reserved.

@@ -15,7 +15,7 @@
 		5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE2F216154E000C8DC4A /* RootSegue.swift */; };
 		5727CE3221615B1300C8DC4A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5727CE3121615B1300C8DC4A /* MainViewController.swift */; };
 		5727CE3521617FF200C8DC4A /* MainMenu.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5727CE3421617FF200C8DC4A /* MainMenu.storyboard */; };
-		5755BAC5216FB781003F899D /* UIImage Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755BAC4216FB781003F899D /* UIImage Resize.swift */; };
+		5755BAC5216FB781003F899D /* UIImageResize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5755BAC4216FB781003F899D /* UIImageResize.swift */; };
 		576E8E85216617E800418962 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 576E8E84216617E800418962 /* LocationManager.swift */; };
 		57833005215A4F5600621368 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57833004215A4F5600621368 /* AppDelegate.swift */; };
 		5783300A215A4F5600621368 /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57833008215A4F5600621368 /* Map.storyboard */; };
@@ -82,7 +82,7 @@
 		5727CE2F216154E000C8DC4A /* RootSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSegue.swift; sourceTree = "<group>"; };
 		5727CE3121615B1300C8DC4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5727CE3421617FF200C8DC4A /* MainMenu.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainMenu.storyboard; sourceTree = "<group>"; };
-		5755BAC4216FB781003F899D /* UIImage Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage Resize.swift"; sourceTree = "<group>"; };
+		5755BAC4216FB781003F899D /* UIImageResize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResize.swift; sourceTree = "<group>"; };
 		576E8E84216617E800418962 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		57833001215A4F5600621368 /* Maps.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maps.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57833004215A4F5600621368 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -115,36 +115,104 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5727CE212161176200C8DC4A /* Login */ = {
+		572DD0F422DC7C8300C3CE29 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				5727CE1D21610B7E00C8DC4A /* Login.storyboard */,
-				5727CE1F216116FF00C8DC4A /* LoginViewController.swift */,
-				5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */,
-				5727CE252161437100C8DC4A /* RegistrationViewController.swift */,
+				57833004215A4F5600621368 /* AppDelegate.swift */,
+				572DD0F622DC7C9000C3CE29 /* BusinessLogic */,
+				572DD0F522DC7C8A00C3CE29 /* Entity */,
+				572DD0F722DC7C9600C3CE29 /* Flows */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		572DD0F522DC7C8A00C3CE29 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				5727CE1B2161025D00C8DC4A /* UserRealmModel.swift */,
+				57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		572DD0F622DC7C9000C3CE29 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				57A222EE216190FA0041764E /* RealmService */,
+				572DD0FC22DC7D3700C3CE29 /* Routers */,
+				576E8E84216617E800418962 /* LocationManager.swift */,
 				57A222EC21618F280041764E /* Authorization.swift */,
 			);
-			path = Login;
+			path = BusinessLogic;
 			sourceTree = "<group>";
 		};
-		5727CE222161177000C8DC4A /* Maps */ = {
+		572DD0F722DC7C9600C3CE29 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
-				57833008215A4F5600621368 /* Map.storyboard */,
-				57833016215A542900621368 /* MapViewController.swift */,
-				57F9E1AE215ABBB800BCE43B /* CoordinatesRealmModel.swift */,
-				576E8E84216617E800418962 /* LocationManager.swift */,
+				572DD0FA22DC7CD800C3CE29 /* Storyboards */,
+				572DD0FB22DC7CDF00C3CE29 /* Controllers */,
 			);
-			path = Maps;
+			path = Flows;
 			sourceTree = "<group>";
 		};
-		5727CE3321617FD800C8DC4A /* Main Menu */ = {
+		572DD0F822DC7C9E00C3CE29 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5783300B215A4F5800621368 /* Assets.xcassets */,
+				5783300D215A4F5800621368 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		572DD0F922DC7CC000C3CE29 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */,
+				5755BAC4216FB781003F899D /* UIImageResize.swift */,
+				57A222E8216186010041764E /* BaseRouter.swift */,
+				5727CE2F216154E000C8DC4A /* RootSegue.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		572DD0FA22DC7CD800C3CE29 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				5727CE3421617FF200C8DC4A /* MainMenu.storyboard */,
-				5727CE3121615B1300C8DC4A /* MainViewController.swift */,
+				57833008215A4F5600621368 /* Map.storyboard */,
+				5727CE1D21610B7E00C8DC4A /* Login.storyboard */,
 			);
-			path = "Main Menu";
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		572DD0FB22DC7CDF00C3CE29 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5727CE3121615B1300C8DC4A /* MainViewController.swift */,
+				57833016215A542900621368 /* MapViewController.swift */,
+				5727CE1F216116FF00C8DC4A /* LoginViewController.swift */,
+				5727CE232161436100C8DC4A /* RestorePasswordViewController.swift */,
+				5727CE252161437100C8DC4A /* RegistrationViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		572DD0FC22DC7D3700C3CE29 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				57A222F121619EC30041764E /* MainRouter.swift */,
+				57A222F321619ECE0041764E /* LoginRouter.swift */,
+				57A222F62161A8B80041764E /* BackToLoginRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		572DD10322DC7D7F00C3CE29 /* Environments */ = {
+			isa = PBXGroup;
+			children = (
+				57833010215A4F5800621368 /* Info.plist */,
+			);
+			path = Environments;
 			sourceTree = "<group>";
 		};
 		57832FF8215A4F5600621368 = {
@@ -168,45 +236,17 @@
 		57833003215A4F5600621368 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				57A222EE216190FA0041764E /* RealmService */,
-				57A222E7216185C70041764E /* Segues */,
-				57A222E6216185C10041764E /* Routers */,
-				5727CE3321617FD800C8DC4A /* Main Menu */,
-				5727CE222161177000C8DC4A /* Maps */,
-				5727CE212161176200C8DC4A /* Login */,
-				57833004215A4F5600621368 /* AppDelegate.swift */,
-				5783300B215A4F5800621368 /* Assets.xcassets */,
-				5783300D215A4F5800621368 /* LaunchScreen.storyboard */,
-				57833010215A4F5800621368 /* Info.plist */,
-				57A222FB2161B2520041764E /* StoryboardIdentifiable.swift */,
-				5755BAC4216FB781003F899D /* UIImage Resize.swift */,
+				572DD0F422DC7C8300C3CE29 /* App */,
+				572DD0F922DC7CC000C3CE29 /* Core */,
+				572DD0F822DC7C9E00C3CE29 /* Resources */,
+				572DD10322DC7D7F00C3CE29 /* Environments */,
 			);
 			path = Maps;
-			sourceTree = "<group>";
-		};
-		57A222E6216185C10041764E /* Routers */ = {
-			isa = PBXGroup;
-			children = (
-				57A222E8216186010041764E /* BaseRouter.swift */,
-				57A222F121619EC30041764E /* MainRouter.swift */,
-				57A222F321619ECE0041764E /* LoginRouter.swift */,
-				57A222F62161A8B80041764E /* BackToLoginRouter.swift */,
-			);
-			path = Routers;
-			sourceTree = "<group>";
-		};
-		57A222E7216185C70041764E /* Segues */ = {
-			isa = PBXGroup;
-			children = (
-				5727CE2F216154E000C8DC4A /* RootSegue.swift */,
-			);
-			path = Segues;
 			sourceTree = "<group>";
 		};
 		57A222EE216190FA0041764E /* RealmService */ = {
 			isa = PBXGroup;
 			children = (
-				5727CE1B2161025D00C8DC4A /* UserRealmModel.swift */,
 				57A222EF216191120041764E /* RealmService.swift */,
 			);
 			path = RealmService;
@@ -434,7 +474,7 @@
 				576E8E85216617E800418962 /* LocationManager.swift in Sources */,
 				57A222ED21618F280041764E /* Authorization.swift in Sources */,
 				57F9E1AF215ABBB800BCE43B /* CoordinatesRealmModel.swift in Sources */,
-				5755BAC5216FB781003F899D /* UIImage Resize.swift in Sources */,
+				5755BAC5216FB781003F899D /* UIImageResize.swift in Sources */,
 				57833005215A4F5600621368 /* AppDelegate.swift in Sources */,
 				5727CE30216154E000C8DC4A /* RootSegue.swift in Sources */,
 				57A222F221619EC30041764E /* MainRouter.swift in Sources */,
@@ -596,7 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YX6VKW92JQ;
-				INFOPLIST_FILE = Maps/Info.plist;
+				INFOPLIST_FILE = Maps/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -615,7 +655,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YX6VKW92JQ;
-				INFOPLIST_FILE = Maps/Info.plist;
+				INFOPLIST_FILE = Maps/Environments/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
